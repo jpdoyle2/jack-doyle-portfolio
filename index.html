@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack Doyle - Strategic Communications & Copywriting Expert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F9F7F4;
+            --charcoal: #1A1A1A;
+            --slate: #4A5568;
+            --accent: #C84B31;
+            --soft-blue: #7BA3BC;
+            --light-gray: #E8E5E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            z-index: 9999;
+        }
+
+        header {
+            padding: 4rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--light-gray);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .name-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            color: var(--charcoal);
+            letter-spacing: -0.02em;
+            line-height: 0.95;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--slate);
+            font-weight: 400;
+            margin-top: 1rem;
+            max-width: 500px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            padding-top: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info a:hover {
+            color: var(--charcoal);
+        }
+
+        .about-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            animation: fadeIn 1s ease-out 0.3s backwards;
+        }
+
+        .about-section h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--charcoal);
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--slate);
+            max-width: 800px;
+        }
+
+        .featured-work {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--charcoal);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .category-header {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--slate);
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .category-header:first-of-type {
+            margin-top: 2rem;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .work-card {
+            background: white;
+            border: 1px solid var(--light-gray);
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .work-grid .work-card:nth-child(1) { animation-delay: 0.1s; }
+        .work-grid .work-card:nth-child(2) { animation-delay: 0.2s; }
+        .work-grid .work-card:nth-child(3) { animation-delay: 0.3s; }
+        .work-grid .work-card:nth-child(4) { animation-delay: 0.4s; }
+        .work-grid .work-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .work-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(200, 75, 49, 0.03), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .work-card:hover::before {
+            left: 100%;
+        }
+
+        .work-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent);
+        }
+
+        .work-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(200, 75, 49, 0.08);
+        }
+
+        .work-card h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--charcoal);
+        }
+
+        .work-card .publication {
+            font-size: 0.95rem;
+            color: var(--soft-blue);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .work-card p {
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .work-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .work-card a:hover {
+            gap: 0.75rem;
+        }
+
+        .work-card a::after {
+            content: '→';
+            font-size: 1.2rem;
+        }
+
+        .experience-section {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .experience-grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .experience-item {
+            border-left: 3px solid var(--light-gray);
+            padding-left: 2rem;
+            transition: border-color 0.3s ease;
+            animation: fadeIn 0.8s ease-out backwards;
+        }
+
+        .experience-item:nth-child(1) { animation-delay: 0.1s; }
+        .experience-item:nth-child(2) { animation-delay: 0.2s; }
+        .experience-item:nth-child(3) { animation-delay: 0.3s; }
+        .experience-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .experience-item:hover {
+            border-left-color: var(--accent);
+        }
+
+        .experience-header {
+            margin-bottom: 1rem;
+        }
+
+        .experience-item h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-item .role {
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-item .dates {
+            font-size: 0.9rem;
+            color: var(--slate);
+        }
+
+        .experience-item ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-item li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .experience-item li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        footer {
+            max-width: 1200px;
+            margin: 6rem auto 2rem;
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid var(--light-gray);
+            text-align: center;
+            color: var(--slate);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header {
+                font-size: 2rem;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section,
+            .featured-work,
+            .experience-section {
+                margin: 3rem auto;
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain-overlay"></div>
+
+    <header>
+        <div class="header-content">
+            <div class="name-section">
+                <h1>Jack Doyle</h1>
+                <p class="tagline">Strategic Communications & Copywriting Expert</p>
+            </div>
+            <div class="contact-info">
+                <a href="mailto:jpdoyle2@gmail.com">
+                    <span>✉</span> jpdoyle2@gmail.com
+                </a>
+                <a href="tel:651-329-9908">
+                    <span>☎</span> 651-329-9908
+                </a>
+                <a href="https://www.linkedin.com/in/jackpdoyle" target="_blank">
+                    <span>in</span> LinkedIn
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="about-section">
+        <h2>About</h2>
+        <p class="about-text">
+            Strategic communications and copywriting expert with 12+ years of experience crafting compelling narratives for global B2C and B2B brands including Amazon, Levi's, Lowe's, Mazda, Salesforce, and more. Expert at translating complex business value into clear, persuasive copy across pitches, bylines, blog posts, executive messaging, and social content – along with a strong attention to detail. A proud Minnesotan who has made San Francisco home – while missing cheese curds every day – and loves to read long-form journalism and play, watch, and complain about soccer.
+        </p>
+    </section>
+
+    <section class="featured-work">
+        <h2 class="section-header">Published Work</h2>
+        
+        <!-- Executive Interviews & Media -->
+        <h3 class="category-header">Executive Interviews & Media</h3>
+        <div class="work-grid">
+            <div class="work-card">
+                <span class="work-tag">Executive Interview</span>
+                <h3>Mazda CEO on Turnaround Strategy</h3>
+                <p class="publication">Detroit Free Press</p>
+                <p>Strategic messaging positioning Mazda's turnaround effort and vision for winning over Detroit and American consumers.</p>
+                <a href="https://www.freep.com/story/money/cars/2024/12/18/mazda-turnaround-effort-to-win-over-detroit/76965868007/" target="_blank">Read article</a>
+            </div>
+
+            <div class="work-card">
+                <span class="work-tag">Executive Interview</span>
+                <h3>Levi's Global Success Strategy</h3>
+                <p class="publication">Fast Company</p>
+                <p>Crafted compelling executive messaging showcasing Levi's global growth strategy and brand positioning across markets.</p>
+                <a href="https://www.fastcompany.com/91448585/levis-global-success" target="_blank">Read article</a>
+            </div>
+
+            <div class="work-card">
+                <span class="work-tag">Executive Interview</span>
+                <h3>Mazda CEO on EV & Hybrid Strategy</h3>
+                <p class="publication">CNBC</p>
+                <p>Strategic messaging and talking points positioning the global CEO as an authoritative voice on electrification and business strategy.</p>
+                <a href="https://www.cnbc.com/video/2024/04/09/mazda-ceo-masahiro-moro-on-ev-hybrid-strategy-freedom-of-choice-is-important.html" target="_blank">Watch interview</a>
+            </div>
+
+            <div class="work-card">
+                <span class="work-tag">Executive Interview</span>
+                <h3>Mazda CEO on Supply Chain & EV Adoption</h3>
+                <p class="publication">Bloomberg</p>
+                <p>Compelling executive messaging that helped secure Tier 1 media placements during MNAO's most successful corporate initiative of 2024.</p>
+                <a href="https://www.bloomberg.com/news/videos/2024-04-09/mazda-ceo-on-supply-chain-issues-ev-adoption-us-sales" target="_blank">Watch interview</a>
+            </div>
+
+            <div class="work-card">
+                <span class="work-tag">Broadcast Coverage</span>
+                <h3>Levi's Reopens The Vault</h3>
+                <p class="publication">CBS San Francisco</p>
+                <p>Strategic media relations and messaging for Levi's heritage showcase, highlighting the brand's denim legacy at San Francisco headquarters.</p>
+                <a href="https://www.cbsnews.com/sanfrancisco/video/levi-strauss-reopens-the-vault-at-san-francisco-headquarters-showcasing-levis-denim-legacy/" target="_blank">Watch segment</a>
+            </div>
+        </div>
+
+        <!-- Op-Eds & Thought Leadership -->
+        <h3 class="category-header">Op-Eds & Thought Leadership</h3>
+        <div class="work-grid">
+            <div class="work-card">
+                <span class="work-tag">Op-Ed</span>
+                <h3>Preventing Further Injustices After the Yanez Verdict</h3>
+                <p class="publication">Star Tribune</p>
+                <p>Commentary on police accountability and justice reform following a high-profile verdict, exploring pathways to prevent future injustices.</p>
+                <a href="https://www.startribune.com/nekima-levy-pounds-preventing-further-injustices-after-the-yanez-verdict/430449153" target="_blank">Read article</a>
+            </div>
+
+            <div class="work-card">
+                <span class="work-tag">Op-Ed</span>
+                <h3>Digital Reserve Currency</h3>
+                <p class="publication">The New York Times</p>
+                <p>Thought leadership piece exploring cryptocurrency regulations and the future of digital currencies during a period of explosive growth for Coinbase.</p>
+                <a href="https://www.nytimes.com/2018/12/18/business/dealbook/digital-reserve-currency.html" target="_blank">Read article</a>
+            </div>
+
+            <div class="work-card">
+                <span class="work-tag">Thought Leadership</span>
+                <h3>Corporate Social Responsibility & ESG Leadership</h3>
+                <p class="publication">Fortune</p>
+                <p>Executive byline for Salesforce Chief Impact Officer Suzanne DiBianca on the future of corporate responsibility and ESG strategy.</p>
+                <a href="https://fortune.com/2021/08/24/corporate-social-responsibility-esg-leadership/" target="_blank">Read article</a>
+            </div>
+        </div>
+
+        <!-- Sustainability Reports -->
+        <h3 class="category-header">Sustainability Reports</h3>
+        <div class="work-grid">
+            <div class="work-card">
+                <span class="work-tag">Sustainability Report</span>
+                <h3>Meta 2021 Sustainability Report</h3>
+                <p class="publication">Meta</p>
+                <p>Strategic copywriting and narrative development for Meta's comprehensive sustainability report, communicating environmental commitments and progress to stakeholders.</p>
+                <a href="https://sustainability.fb.com/wp-content/uploads/2022/06/Meta-2021-Sustainability-Report.pdf" target="_blank">View report</a>
+            </div>
+
+            <div class="work-card">
+                <span class="work-tag">Sustainability Report</span>
+                <h3>JBS 2024 Sustainability Report - Executive Summary</h3>
+                <p class="publication">JBS</p>
+                <p>Crafted executive summary translating complex sustainability initiatives into clear, compelling narratives for one of the world's largest food companies.</p>
+                <a href="https://jbsesg.com/wp-content/uploads/2025/09/JBS-2024-Sustainability-Report_Executive-Summary_0915-v3_MH.pdf" target="_blank">View report</a>
+            </div>
+        </div>
+
+        <!-- Feature Coverage & Research -->
+        <h3 class="category-header">Feature Coverage & Research</h3>
+        <div class="work-grid">
+            <div class="work-card">
+                <span class="work-tag">Feature Coverage</span>
+                <h3>Ethical Explorer Pack</h3>
+                <p class="publication">WIRED</p>
+                <p>Translated research into accessible copy and content for Omidyar Network's Ethical Explorer toolkit, earning coverage in WIRED and BuiltIn.</p>
+                <a href="https://www.wired.com/story/ethics-guide-tech-rewritten-workers/" target="_blank">Read article</a>
+            </div>
+
+            <div class="work-card">
+                <span class="work-tag">Research Report</span>
+                <h3>3D Printing & The Future of Manufacturing</h3>
+                <p class="publication">Fortune</p>
+                <p>Co-authored research report for Stratasys Direct Manufacturing that became their second-biggest lead generator with 70+ media placements.</p>
+                <a href="http://fortune.com/2015/09/17/3d-printing-future-of-manufacturing/" target="_blank">Read article</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience-section">
+        <h2 class="section-header">Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Burson</h3>
+                    <p class="role">Vice President</p>
+                    <p class="dates">May 2023 – Feb. 2026 | San Francisco, CA</p>
+                </div>
+                <ul>
+                    <li>Corporate lead for Mazda North America Operations, providing strategic counsel through economic uncertainty and industry disruption</li>
+                    <li>Led MNAO's most successful corporate initiative (2024) through strategic pitch writing and narrative development, securing Tier 1 CEO interviews and 25+ earned stories</li>
+                    <li>Crafted compelling messaging for the global CEO that secured interviews with Bloomberg, CNBC, and New York Times</li>
+                    <li>Levi's corporate counsel, writing and defining a new enterprise-wide narrative including Super Bowl LX initiatives</li>
+                    <li>Agency lead supporting Hinge's Trust & Safety team by crafting messaging houses to establish trust in user safety</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>FleishmanHillard</h3>
+                    <p class="role">Managing Supervisor</p>
+                    <p class="dates">Feb. 2019 – Feb. 2023 | San Francisco, CA</p>
+                </div>
+                <ul>
+                    <li>Wrote executive messaging, bylines, and thought leadership for C-suite leaders including Bose CMO and Salesforce Chief Impact Officer</li>
+                    <li>Project lead for Omidyar Network's Ethical Explorer, earning coverage in WIRED and BuiltIn</li>
+                    <li>Co-managed Salesforce's first-ever virtual Dreamforce event, coordinating global teams</li>
+                    <li>Enhanced Lowe's hyperlocal brand reputation through Lowe's Hometowns, a $100M community impact program</li>
+                    <li>Led Lowe's sustainability communications including net-zero emissions goal messaging</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Bully Pulpit Interactive</h3>
+                    <p class="role">Associate</p>
+                    <p class="dates">Sept. 2017 – Feb. 2019 | San Francisco, CA</p>
+                </div>
+                <ul>
+                    <li>Wrote rapid-turn content and messaging for Sonos CMO during high-profile CES activations</li>
+                    <li>Helped Coinbase craft compelling narratives during explosive growth period, including New York Times op-ed</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Inprela Communications</h3>
+                    <p class="role">Senior Account Executive</p>
+                    <p class="dates">July 2013 – Sept. 2017 | Minneapolis, MN</p>
+                </div>
+                <ul>
+                    <li>Co-authored research report for Stratasys Direct Manufacturing that generated 70+ media hits including Fortune</li>
+                    <li>Executed successful media events that became top lead generators for clients</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Jack Doyle. All rights reserved.</p>
+        <p style="margin-top: 0.5rem;">University of Wisconsin-Madison • B.A. Journalism</p>
+    </footer>
+</body>
+</html>
